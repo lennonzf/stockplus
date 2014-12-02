@@ -17,6 +17,7 @@
 				<!--Initial-->
 				<input type='submit' value='Initial' class='input-button basic-button' >
 				<a href='page-addproduct.php'><input type='submit' value='Add Product' class='input-button hover-button'></a>
+				<a href='page-importproduct.php'><input type='submit' value='Import Product' class='input-button hover-button'></a>
 				<a href='page-addshop.php'><input type='submit' value='Add Shop' class='input-button hover-button'></a>
 				<div class='gap'></div>
 				<!--Shop-->
