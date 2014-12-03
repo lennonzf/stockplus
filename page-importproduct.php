@@ -34,15 +34,19 @@
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $num = count($data);
 		        $row++;
-		        for ($c=0; $c < $num; $c = $c + 4) {
+		        for ($c=0; $c < $num; $c = $c + 5) {
 		        	if($row > 1){
 			        	$barcode = $data[$c];
 			        	$productname = $data[$c+1];
 			        	$cost = $data[$c+2];
 			        	$price = $data[$c+3];
+			        	$qty = $data[$c+4];
 
 			            $query_import = "INSERT INTO Product (Barcode, ProductName, Cost, Price) VALUES ('".$barcode."', '".$productname."', '".$cost."', '".$price."')";
 			            mysqli_query($dbconn, $query_import);
+
+			            $query_warehouse = "INSERT INTO WarehouseStock (Barcode, WarehouseQTY) VALUES ('".$barcode."', '".$qty."') ";
+			            mysqli_query($dbconn, $query_warehouse);
 		        	}
 		        }
 		    }
